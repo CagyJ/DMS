@@ -9,8 +9,14 @@ Others: We are only going to finish the main part, so it is feasible to deploy w
 
 TODO:
 
+- clone project
+  - open gitbash
+  - `git clone https://github.com/CagyJ/DMS.git`
+  - Open interllij
 - add SSH key in Github
-- 
+- every time when you wanna edit or add something, pls `pull`/`fetch` from remote
+  - `git pull`
+- Others....
 
 
 
