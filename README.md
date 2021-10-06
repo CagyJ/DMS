@@ -73,8 +73,10 @@ Table: user
 TODO MWH
 
 - write content
-
-- design LOGO: https://www.freelogodesign.org/
+- Content: Welcome 'username'
+- Sidebar navigation
+- User avatar in the upper right corner (logo, profile,log out)
+- design LOGO: https://www.freelogodesign.org/     in the upper left corner
 
 
 
@@ -91,6 +93,13 @@ Table: order
 Table: car
 
 - Car no.
+- Driver name
+- Driver phone number
+- Driver status (free or working)
+- Driver address
+- Driver ID number
+- We need to modify, add, delete operates
+- If working, shows the Order number
 - TODO MWH
 
 
