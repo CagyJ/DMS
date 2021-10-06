@@ -70,9 +70,6 @@ Table: user
 
 ### Index
 
-TODO MWH
-
-- write content
 - Content: Welcome 'username'
 - Sidebar navigation
 - User avatar in the upper right corner (logo, profile,log out)
@@ -100,7 +97,6 @@ Table: car
 - Driver ID number
 - We need to modify, add, delete operates
 - If working, shows the Order number
-- TODO MWH
 
 
 
