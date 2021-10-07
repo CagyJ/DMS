@@ -64,9 +64,9 @@ Distribution Management System
 
 Table: user
 
-- Content: User login  interface
+- Content: User login interface
 - one Buttons here (login）  
-- the user table including two text boxes (user Id and password)
+- the user table including two text boxes (user Id and password)!
 
 
 
