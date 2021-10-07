@@ -20,6 +20,11 @@ public class TestController {
     return "testMWH.html";
   }
 
+  @GetMapping("/mwh")
+  @ResponseBody
+  public String Testmwh(){
+    return "Hello, i am the test";
+  }
 
   // TODO for MWH: create your first response!
   // do the similar thing as above, inside @GetMapping, you should write your name down, like /mwh
