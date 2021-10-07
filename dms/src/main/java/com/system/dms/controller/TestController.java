@@ -15,6 +15,12 @@ public class TestController {
     return "<h1>Hello World!</h1>";
   }
 
+  @GetMapping("/MWH")
+  public String testMWH(){
+    return "testMWH.html";
+  }
+
+
   // TODO for MWH: create your first response!
   // do the similar thing as above, inside @GetMapping, you should write your name down, like /mwh
   // and return a block of html code or just string, whatever you like
