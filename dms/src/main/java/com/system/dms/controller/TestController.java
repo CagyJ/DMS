@@ -23,7 +23,7 @@ public class TestController {
   @GetMapping("/mwh")
   @ResponseBody
   public String Testmwh(){
-    return "Hello, i am the test";
+    return "Hello, i am the test!";
   }
 
   // TODO for MWH: create your first response!
