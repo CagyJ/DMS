@@ -64,7 +64,9 @@ Distribution Management System
 
 Table: user
 
-- TODO LRF
+- Content: User login  interface
+- one Buttons here (login）  
+- the user table including two text boxes (user Id and password)
 
 
 
