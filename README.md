@@ -83,8 +83,15 @@ Table: user
 
 Table: order
 
-- TODO LRF
-
+- Content: A list of order
+- Included 
+- order Id (no...)
+- order name
+- order Origin and destination
+- Car license plate number 
+- order amount 
+- Order Status (not started / in transit / completed)
+- All important information is indispensable
 
 
 ### Car Management
