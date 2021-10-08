@@ -88,9 +88,11 @@ Table: order
 - order Id (no...)
 - order name
 - order Origin and destination
-- Car license plate number 
+- Car license plate number
 - order amount 
 - Order Status (not started / in transit / completed)
+- if the order have finished will enter the history orders (one button here)
+- will be a text box (write some important things in time)
 - All important information is indispensable
 
 
