@@ -16,14 +16,14 @@
     .el-aside {
       background-color: #D3DCE6;
       color: #333;
-      text-align: center;
+      /*text-align: center;*/
       line-height: 900px;
     }
 
     .el-main {
       background-color: #E9EEF3;
       color: #333;
-      text-align: center;
+      /*text-align: center;*/
       line-height: 900px;
     }
 
@@ -33,15 +33,50 @@
       line-height: 45px;
     }
 
+    .avatar {
+      position: absolute !important;
+      margin-top: 17px;
+      right: 17px;
+    }
+
   </style>
 </head>
 <body>
 <div id="app">
   <el-container>
-    <el-header>Header</el-header>
+    <el-header>
+
+      <div class="avatar">
+        <div class="block">
+          <el-avatar :size="40" :src="circleUrl"></el-avatar>
+        </div>
+      </div>
+    </el-header>
     <el-container>
-      <el-aside width="250px">Aside</el-aside>
-      <el-main>Main</el-main>
+
+      <el-aside width="230px">
+        <el-menu
+            default-active="2"
+            class="sidebar-navi"
+            background-color="#D3DCE6"
+            text-color="000000"
+            active-text-color="#f29027">
+          <el-menu-item index="1">
+            <i class="el-icon-document"></i>
+            <span slot="title">Oder Management</span>
+          </el-menu-item>
+          <el-menu-item index="2">
+            <i class="el-icon-menu"></i>
+            <span slot="title">Car Management</span>
+          </el-menu-item>
+          <el-menu-item index="3">
+            <i class="el-icon-document"></i>
+            <span slot="title">Order History</span>
+          </el-menu-item>
+        </el-menu>
+      </el-aside>
+
+      <el-main>Welcome to DMS!</el-main>
     </el-container>
     <el-footer>
       Copyright © 2021 DMS
@@ -60,8 +95,8 @@
 <script>
   new Vue({
     el: '#app',
-    data: function() {
-      return { visible: false }
+    data: {
+      circleUrl: "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png",
     }
   })
 </script>
