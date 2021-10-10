@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <!-- import CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <style>
+    .el-header {
+      background-color: #2c2c2c;
+      color: #ffffff;
+      /*text-align: center;*/
+      line-height: 70px;
+      height: 70px !important;
+    }
+
+    .el-aside {
+      background-color: #D3DCE6;
+      color: #333;
+      /*text-align: center;*/
+      line-height: 900px;
+    }
+
+    .el-main {
+      background-color: #E9EEF3;
+      color: #333;
+      /*text-align: center;*/
+      line-height: 900px;
+    }
+
+    .el-footer {
+      height: 45px !important;
+      text-align: center;
+      line-height: 45px;
+    }
+
+    .avatar {
+      position: absolute !important;
+      margin-top: 17px;
+      right: 17px;
+    }
+
+  </style>
+</head>
+<body>
+<div id="app">
+  <el-container>
+    <el-header>
+
+      <div class="avatar">
+        <div class="block">
+          <el-avatar :size="40" :src="circleUrl"></el-avatar>
+        </div>
+      </div>
+    </el-header>
+    <el-container>
+
+      <el-aside width="230px">
+        <el-menu
+            default-active="2"
+            class="sidebar-navi"
+            background-color="#D3DCE6"
+            text-color="000000"
+            active-text-color="#f29027">
+          <el-menu-item index="1">
+            <i class="el-icon-document"></i>
+            <span slot="title">Oder Management</span>
+          </el-menu-item>
+          <el-menu-item index="2">
+            <i class="el-icon-menu"></i>
+            <span slot="title">Car Management</span>
+          </el-menu-item>
+          <el-menu-item index="3">
+            <i class="el-icon-document"></i>
+            <span slot="title">Order History</span>
+          </el-menu-item>
+        </el-menu>
+      </el-aside>
+
+      <el-main>Welcome to DMS!</el-main>
+    </el-container>
+    <el-footer>
+      Copyright © 2021 DMS
+    </el-footer>
+  </el-container>
+</div>
+
+</body>
+
+<!-- import Vue before Element -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<!-- import axios -->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      circleUrl: "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png",
+    }
+  })
+</script>
+</html>

@@ -9,9 +9,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class TestController {
 
   @GetMapping("/")
-  @ResponseBody
-  public String test() {
-    return "<h1>Hello World!</h1>";
+  public String index() {
+    return "index.html";
   }
 
   @GetMapping("/MWH")
