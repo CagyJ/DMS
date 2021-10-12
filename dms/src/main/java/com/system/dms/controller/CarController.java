@@ -20,7 +20,7 @@ public class CarController {
     @Autowired
     private CarService carService;
 
-    @GetMapping("/car")
+    @GetMapping("/all")
     @ResponseBody
     public Map list(){
         List<Car> cars = carService.listAll();

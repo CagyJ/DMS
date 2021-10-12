@@ -25,7 +25,7 @@ public class Car {
     @TableField("driver_address")
     private String driver_address;
 
-    @TableField("driver_idnumber")
+    @TableField("driver_id_number")
     private String driver_idnumber;
 
     public Car(){
