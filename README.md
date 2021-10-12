@@ -56,6 +56,14 @@ Distribution Management System
 
 
 
+## Errors
+
+- If you face `Access denied for user 'root'@'localhost' (using password: YES)` issue when connecting database, check this
+  - https://stackoverflow.com/questions/17975120/access-denied-for-user-rootlocalhost-using-password-yes-no-privileges
+- 
+
+
+
 ## Features
 
 
