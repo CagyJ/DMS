@@ -7,39 +7,40 @@ import java.math.BigInteger;
 
 @TableName("dms.car")
 public class Car {
+
     @TableId
     private BigInteger id;
 
     @TableField("car_license")
-    private String car_license;
+    private String carLicense;
 
     @TableField("driver_name")
-    private String driver_name;
+    private String driverName;
 
     @TableField("driver_phonenumber")
-    private int driver_phonenumber;
+    private int driverPhonenumber;
 
     @TableField("status")
     private String status;
 
     @TableField("driver_address")
-    private String driver_address;
+    private String driverAddress;
 
     @TableField("driver_id_number")
-    private String driver_idnumber;
+    private String driverIdNumber;
 
-    public Car(){
-
+    public Car() {
     }
 
-    public Car(BigInteger id, String car_license, String driver_name, int driver_phonenumber, String status, String driver_address, String driver_idnumber) {
+    public Car(BigInteger id, String carLicense, String driverName, int driverPhonenumber,
+        String status, String driverAddress, String driverIdNumber) {
         this.id = id;
-        this.car_license = car_license;
-        this.driver_name = driver_name;
-        this.driver_phonenumber = driver_phonenumber;
+        this.carLicense = carLicense;
+        this.driverName = driverName;
+        this.driverPhonenumber = driverPhonenumber;
         this.status = status;
-        this.driver_address = driver_address;
-        this.driver_idnumber = driver_idnumber;
+        this.driverAddress = driverAddress;
+        this.driverIdNumber = driverIdNumber;
     }
 
     public BigInteger getId() {
@@ -50,28 +51,28 @@ public class Car {
         this.id = id;
     }
 
-    public String getCar_license() {
-        return car_license;
+    public String getCarLicense() {
+        return carLicense;
     }
 
-    public void setCar_license(String car_license) {
-        this.car_license = car_license;
+    public void setCarLicense(String carLicense) {
+        this.carLicense = carLicense;
     }
 
-    public String getDriver_name() {
-        return driver_name;
+    public String getDriverName() {
+        return driverName;
     }
 
-    public void setDriver_name(String driver_name) {
-        this.driver_name = driver_name;
+    public void setDriverName(String driverName) {
+        this.driverName = driverName;
     }
 
-    public int getDriver_phonenumber() {
-        return driver_phonenumber;
+    public int getDriverPhonenumber() {
+        return driverPhonenumber;
     }
 
-    public void setDriver_phonenumber(int driver_phonenumber) {
-        this.driver_phonenumber = driver_phonenumber;
+    public void setDriverPhonenumber(int driverPhonenumber) {
+        this.driverPhonenumber = driverPhonenumber;
     }
 
     public String getStatus() {
@@ -82,32 +83,32 @@ public class Car {
         this.status = status;
     }
 
-    public String getDriver_address() {
-        return driver_address;
+    public String getDriverAddress() {
+        return driverAddress;
     }
 
-    public void setDriver_address(String driver_address) {
-        this.driver_address = driver_address;
+    public void setDriverAddress(String driverAddress) {
+        this.driverAddress = driverAddress;
     }
 
-    public String getDriver_idnumber() {
-        return driver_idnumber;
+    public String getDriverIdNumber() {
+        return driverIdNumber;
     }
 
-    public void setDriver_idnumber(String driver_idnumber) {
-        this.driver_idnumber = driver_idnumber;
+    public void setDriverIdNumber(String driverIdNumber) {
+        this.driverIdNumber = driverIdNumber;
     }
 
     @Override
     public String toString() {
         return "Car{" +
-                "id=" + id +
-                ", car_license='" + car_license + '\'' +
-                ", driver_name='" + driver_name + '\'' +
-                ", driver_phonenumber=" + driver_phonenumber +
-                ", status='" + status + '\'' +
-                ", driver_address='" + driver_address + '\'' +
-                ", driver_idnumber='" + driver_idnumber + '\'' +
-                '}';
+            "id=" + id +
+            ", carLicense='" + carLicense + '\'' +
+            ", driverName='" + driverName + '\'' +
+            ", driverPhonenumber=" + driverPhonenumber +
+            ", status='" + status + '\'' +
+            ", driverAddress='" + driverAddress + '\'' +
+            ", driverIdNumber='" + driverIdNumber + '\'' +
+            '}';
     }
 }
