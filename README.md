@@ -72,7 +72,11 @@ Distribution Management System
 - Toolkit of MyBatis: MyBatis-Plus https://github.com/baomidou/mybatis-plus
 - Testing The Web Layer in Springboot: https://spring.io/guides/gs/testing-web/
 - GitHub Actions Tutorial(Basic Concepts, CI/CD Pipeline): https://www.youtube.com/watch?v=R8_veQiYBjI
-- ... 
+- GitHub Actions for Java Spring Boot Application: https://medium.com/@pk0752/github-actions-standard-workflow-for-java-spring-boot-application-using-maven-sonar-cloud-and-7dcc4190aa82
+- Actions in GitHub which will be useful for you
+  - checkout https://github.com/actions/checkout
+  - setup-java https://github.com/actions/setup-java
+  - More in https://github.com/actions
 
 
 

@@ -5,24 +5,29 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: [ main, junit_test ]
 
 jobs:
   test:
     name: Unit-Test
-    runs-on: ubuntu-latest
+
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix: 
+        os: [unbuntu-latest, windows-latest, macOs-latest]
 
     steps:
       - uses: actions/checkout@v2
+
       - name: Set up JDK 17
         uses: actions/setup-java@v2
         with:
           java-version: '17'
           distribution: 'adopt'
           cache: maven
+
       - name: Maven Package
         run: cd dms && mvn -B clean package
+
       - name: Maven Verify
         run: cd dms && mvn -B clean verify -DskipTests
