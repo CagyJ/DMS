@@ -109,7 +109,7 @@ Distribution Management System
 - Sidebar navigation
 - User avatar in the upper right corner (logo, profile,log out)
   - design LOGO: https://www.freelogodesign.org/     in the upper left corner
-  - ![logo](https://github.com/CagyJ/DMS/raw/main/dms/src/main/webapp/Image/Logo.png%1D.png)
+  - ![logo](https://github.com/CagyJ/DMS/raw/main/dms/src/main/webapp/Image/Logo.png)
 
 
 
