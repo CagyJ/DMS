@@ -5,6 +5,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 import com.system.dms.controller.TestController;
 import org.junit.jupiter.api.Test;
@@ -13,6 +14,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 @SpringBootTest
@@ -23,11 +25,11 @@ class DmsApplicationTests {
 	private MockMvc mockMvc;
 
 	@Test
-	void indexTestReturn() throws Exception {
+	void indexForwardedTest() throws Exception {
 		mockMvc.perform(get("/"))
 				.andDo(print())
 				.andExpect(status().isOk())
-				.andExpect(content().string(containsString("Hello World!")));
+				.andExpect(view().name("index.html"));
 	}
 
 }
