@@ -13,7 +13,6 @@
     <!-- import axios -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
-<p style="font-size: 30px"> Welcome to DMS from cars!</p>
 
 <body>
 
@@ -55,13 +54,13 @@
     </el-container>
 
     <!-- pagination block
-@current-change: trigger when current page is changed
-:current-page: current page
-:page-sizes:
-:pagination.pageSize:
-layout: the position of the layour
-:total: total numbers
--->
+        @current-change: trigger when current page is changed
+        :current-page: current page
+        :page-sizes:
+        :pagination.pageSize:
+        layout: the position of the layour
+        :total: total numbers
+    -->
     <el-pagination @current-change="handleCurrentChange" :current-page="pagination.currentPage" :page-size="pagination.pageSize" layout="total, prev, pager, next" :total="pagination.total">
     </el-pagination>
 
