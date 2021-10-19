@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <!-- import Vue before Element -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <!-- import axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<style lang="scss" scoped>
+    .login-box {
+        border: 1px solid #DCDFE6;
+        width: 350px;
+        margin: 120px auto;
+        padding: 35px 35px 15px 35px;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        box-shadow: 0 0 25px #909399;
+    }
+
+    .login-title {
+        text-align: center;
+        margin: 0 auto 40px auto;
+        color: #303133;
+    }
+    .header-img {
+        width: 120px;
+        height: 60px;
+        top: 50px;
+        left: 50px;
+    }
+</style>
+
+</style>
+<body>
+
+<div id="login">
+
+    <el-image src="Image\Logo.png" class="header-img"></el-image>
+    <el-form :model="form" :rules="rules" ref="loginForm" label-width="80px" class="login-box">
+        <h2 class="login-title">Login to DMS</h2>
+        <el-form-item label="Username" prop="username">
+            <el-input type="text" placeholder="Please enter your username" v-model="form.username"></el-input>
+
+        </el-form-item>
+        <el-form-item label="Password" prop="password">
+            <el-input type="password" placeholder="Please enter your password" autocomplete="off" v-model="form.password"  @keydown.enter.native="enterToLogin('loginForm')"></el-input>
+        </el-form-item>
+        <el-form-item>
+            <el-button type="success" @click="onSubmit('loginForm')">Login</el-button>
+
+        </el-form-item>
+    </el-form>
+</div>
+
+</body>
+
+<script>
+    axios.defaults.withCredentials = true;
+    new Vue({
+        el: "#login",
+        data: {
+            form: {
+                username: '',
+                password: ''
+            },
+            rules: {
+                username: [
+                    {required: true, message: 'You did NOT enter your username', trigger: 'blur'}
+                ],
+                password: [
+                    {required: true, message: 'You did NOT enter your password', trigger: 'blur'}
+                ]
+            }
+        },
+        methods: {
+            onSubmit(formName) {
+
+            },
+            enterToLogin(formName) {
+                this.onSubmit(formName);
+            }
+        }
+    });
+</script>
+</html>
