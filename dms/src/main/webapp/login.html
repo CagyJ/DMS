@@ -31,8 +31,8 @@
         color: #303133;
     }
     .header-img {
-        width: 120px;
-        height: 60px;
+        width: 165px;
+        height: 150px;
         top: 50px;
         left: 50px;
     }
@@ -56,7 +56,7 @@
             <el-input type="password" placeholder="Please enter your password" autocomplete="off" v-model="form.password"  @keydown.enter.native="enterToLogin('loginForm')" style="width:300px"></el-input>
         </el-form-item>
         <el-form-item>
-            <el-button type="success" @click="onSubmit('loginForm')">Login</el-button>
+            <el-button type="success" @click="onSubmit('loginForm')" style="margin-left:100px">Login</el-button>
 
         </el-form-item>
     </el-form>
@@ -83,8 +83,18 @@
             }
         },
         methods: {
+            successmessage() {
+                this.$message({
+                    message: 'Congrats, login successfully',
+                    type: 'success'
+                });
+            },
+            errormessage() {
+                this.$message.error('Oops, Fucking out plz.');
+            },
             onSubmit(formName) {
-
+                //this.errormessage()
+                this.successmessage()
             },
             enterToLogin(formName) {
                 this.onSubmit(formName);
