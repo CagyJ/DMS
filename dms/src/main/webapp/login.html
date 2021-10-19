@@ -16,7 +16,7 @@
 <style lang="scss" scoped>
     .login-box {
         border: 1px solid #DCDFE6;
-        width: 350px;
+        width: 450px;
         margin: 120px auto;
         padding: 35px 35px 15px 35px;
         border-radius: 5px;
@@ -47,11 +47,13 @@
     <el-form :model="form" :rules="rules" ref="loginForm" label-width="80px" class="login-box">
         <h2 class="login-title">Login to DMS</h2>
         <el-form-item label="Username" prop="username">
-            <el-input type="text" placeholder="Please enter your username" v-model="form.username"></el-input>
+            <i class="el-icon-user" style="margin-right: 12px"></i>
+            <el-input type="text" placeholder="Please enter your username" v-model="form.username" style="width:300px"></el-input>
 
         </el-form-item>
         <el-form-item label="Password" prop="password">
-            <el-input type="password" placeholder="Please enter your password" autocomplete="off" v-model="form.password"  @keydown.enter.native="enterToLogin('loginForm')"></el-input>
+            <i class="el-icon-lock" style="margin-right: 12px"></i>
+            <el-input type="password" placeholder="Please enter your password" autocomplete="off" v-model="form.password"  @keydown.enter.native="enterToLogin('loginForm')" style="width:300px"></el-input>
         </el-form-item>
         <el-form-item>
             <el-button type="success" @click="onSubmit('loginForm')">Login</el-button>
