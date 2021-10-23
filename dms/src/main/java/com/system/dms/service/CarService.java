@@ -13,13 +13,16 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class CarService {
 
-    @Autowired
     private CarMapper carMapper;
+
+    @Autowired
+    public void setCarMapper(CarMapper carMapper) {
+      this.carMapper = carMapper;
+    }
 
     public List<Car> listAll(){
         return carMapper.selectList(new QueryWrapper<>());
     }
-
 
     @Transactional
     public void addCar(Car car) {

@@ -14,13 +14,18 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @RestController
 @RequestMapping("/car")
 public class CarController {
 
-    @Autowired
     private CarService carService;
+
+    @Autowired
+    public void setCarService(CarService carService) {
+        this.carService = carService;
+    }
 
     @GetMapping("/all")
     @ResponseBody
@@ -33,7 +38,7 @@ public class CarController {
 
     @PostMapping("/add")
     @ResponseBody
-    public Map addCar(Car car) {
+    public Map addCar(Car car, Integer curPage, Integer pageSize, RedirectAttributes attr) {
         Map result = new HashMap();
         try {
             carService.addCar(car);
