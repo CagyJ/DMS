@@ -1,6 +1,8 @@
 package com.system.dms.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.system.dms.entity.Car;
 import com.system.dms.exception.DbRequestException;
 import com.system.dms.mapper.CarMapper;
@@ -22,6 +24,12 @@ public class CarService {
 
     public List<Car> listAll(){
         return carMapper.selectList(new QueryWrapper<>());
+    }
+
+    public IPage<Car> paging(Integer page, Integer rows) {
+      Page p = new Page(page, rows);
+      Page cars = carMapper.selectPage(p, new QueryWrapper<Car>());
+      return cars;
     }
 
     @Transactional

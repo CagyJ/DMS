@@ -1,6 +1,7 @@
 package com.system.dms.controller;
 
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.system.dms.entity.Car;
 import com.system.dms.exception.DbRequestException;
 import com.system.dms.service.CarService;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,11 +31,24 @@ public class CarController {
 
     @GetMapping("/all")
     @ResponseBody
-    public Map list(){
+    public Map all(){
         List<Car> cars = carService.listAll();
         HashMap map = new HashMap();
         map.put("cars",cars);
         return map;
+    }
+
+    @PostMapping("/list")
+    @ResponseBody
+    public IPage<Car> list(@RequestParam("page") Integer page, @RequestParam("rows") Integer rows) {
+        if (page == null) {
+            page = 1;
+        }
+        if (rows == null) {
+            rows = 5;
+        }
+        IPage<Car> cars = carService.paging(page, rows);
+        return cars;
     }
 
     @PostMapping("/add")
