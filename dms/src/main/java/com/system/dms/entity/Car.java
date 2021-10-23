@@ -9,7 +9,7 @@ import java.math.BigInteger;
 public class Car {
 
     @TableId
-    private BigInteger id;
+    private Long id;
 
     @TableField("car_license")
     private String carLicense;
@@ -18,7 +18,7 @@ public class Car {
     private String driverName;
 
     @TableField("driver_phonenumber")
-    private int driverPhonenumber;
+    private Integer driverPhonenumber;
 
     @TableField("status")
     private String status;
@@ -32,7 +32,7 @@ public class Car {
     public Car() {
     }
 
-    public Car(BigInteger id, String carLicense, String driverName, int driverPhonenumber,
+    public Car(Long id, String carLicense, String driverName, Integer driverPhonenumber,
         String status, String driverAddress, String driverIdNumber) {
         this.id = id;
         this.carLicense = carLicense;
@@ -43,11 +43,11 @@ public class Car {
         this.driverIdNumber = driverIdNumber;
     }
 
-    public BigInteger getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(BigInteger id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -67,11 +67,11 @@ public class Car {
         this.driverName = driverName;
     }
 
-    public int getDriverPhonenumber() {
+    public Integer getDriverPhonenumber() {
         return driverPhonenumber;
     }
 
-    public void setDriverPhonenumber(int driverPhonenumber) {
+    public void setDriverPhonenumber(Integer driverPhonenumber) {
         this.driverPhonenumber = driverPhonenumber;
     }
 
