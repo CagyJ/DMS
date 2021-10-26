@@ -85,12 +85,20 @@
         },
         methods: {
             listAllCar: async function() {
-                const resp = await axios.post("/car/list", "page=" + this.pagination.currentPage + "&rows=" + this.pagination.pageSize)
-                console.log(resp)
-                this.tableData = resp.data.records
-                // total pages
-                console.log(resp.data.size);
-                this.pagination.total = resp.data.size;
+                try {
+                    const resp = await axios.post("/car/list", "page=" + this.pagination.currentPage + "&rows=" + this.pagination.pageSize)
+                    console.log(resp)
+                    if (resp.status === 200) {
+                        this.tableData = resp.data.records
+                        // total pages
+                        console.log(resp.data.size);
+                        this.pagination.total = resp.data.size;
+                    } else {
+                        this.alertError("Get car list fail, please reload the page...")
+                    }
+                } catch (error) {
+                    console.err(error)
+                }
             },
             addButton: function() {
                 console.log("add a new car")
@@ -105,6 +113,9 @@
                 console.log(pageNum);
                 this.pagination.currentPage = pageNum;
                 this.listAllCar();
+            },
+            alertError(msg) {
+                // TODO
             },
         },
         mounted: function() {
