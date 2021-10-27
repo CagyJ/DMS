@@ -151,3 +151,17 @@ Display all past orders
 
 
 
+
+
+## TODO List
+
+- Write more tests
+- histories page implements
+- implement OrderController, UserController more features, e.g. add, delete, etc.
+- implement the common js util, which including error alert, …
+- implement the login page logical, including button functions, alert msg, also in UserController
+- implement the button function for orders and cars pages
+- add a filter to ignore people enter the main pages immediately
+- delete unsafe api in controllers
+- documentation for new people
+- …
