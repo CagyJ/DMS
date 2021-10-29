@@ -12,21 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class OrderControllerHttpRequestTest {
 
-    private static String JSON = """
-            {
-                "order": [
-                    {
-                        "id": 1,
-                        "name": "test",
-                        "origin": "budapest",
-                        "destination": "german",
-                        "car_license": null,
-                        "product_weight": 0.0,
-                        "status": "completed"
-                    }
-                ]
-            }
-            """;
+    private static String JSON = "{order={id=1, name=test, origin=budapest, destination=german, car_license=null, product_weight=0.0, status=completed}}";
 
     @LocalServerPort
     private int port;
@@ -38,7 +24,7 @@ public class OrderControllerHttpRequestTest {
     void testFindById(){
         // TODO MWH fix this bug
         assertThat(testRestTemplate
-                .getForObject("http://localhost:"+port+"/order/find&id=1", Map.class)
+                .getForObject("http://localhost:"+port+"/order/find?id=1", Map.class)
                 .toString()
                 .equals(JSON))
             .isTrue();
