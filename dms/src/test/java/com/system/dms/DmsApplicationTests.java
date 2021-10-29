@@ -51,5 +51,13 @@ class DmsApplicationTests {
 	}
 
 	// TODO test login, histories and greeting page
+	@Test
+	void historiesForwardedTest() throws Exception {
+		mockMvc.perform(get("/histories"))
+				.andDo(print())
+				.andExpect(status().isOk())
+				.andExpect(view().name("histories.html"))
+				.andExpect(handler().handlerType(PageController.class));
+	}
 
 }
