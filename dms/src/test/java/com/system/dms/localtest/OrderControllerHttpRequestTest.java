@@ -22,7 +22,6 @@ public class OrderControllerHttpRequestTest {
 
     @Test
     void testFindById(){
-        // TODO MWH fix this bug
         assertThat(testRestTemplate
                 .getForObject("http://localhost:"+port+"/order/find?id=1", Map.class)
                 .toString()
