@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>Index</title>
   <meta charset="UTF-8">
+  <!-- import Vue before Element -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <!-- import CSS -->
   <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <!-- import axios -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <style>
     .el-header {
       background-color: #2c2c2c;
@@ -61,22 +68,25 @@
             background-color="#D3DCE6"
             text-color="000000"
             active-text-color="#f29027">
-          <el-menu-item index="1">
+          <el-menu-item index="1" @click="getOrders">
             <i class="el-icon-document"></i>
             <span slot="title">Oder Management</span>
           </el-menu-item>
-          <el-menu-item index="2">
+          <el-menu-item index="2" @click="getCars">
             <i class="el-icon-menu"></i>
             <span slot="title">Car Management</span>
           </el-menu-item>
-          <el-menu-item index="3">
+          <el-menu-item index="3" @click="getHistories">
             <i class="el-icon-document"></i>
             <span slot="title">Order History</span>
           </el-menu-item>
         </el-menu>
       </el-aside>
 
-      <el-main>Welcome to DMS!</el-main>
+      <el-main>
+        <iframe :src="iframeSrc" style="top:80px; left:120px; width: 100%; height:800px;"></iframe>
+      </el-main>
+
     </el-container>
     <el-footer>
       Copyright © 2021 DMS
@@ -86,17 +96,32 @@
 
 </body>
 
-<!-- import Vue before Element -->
-<script src="https://unpkg.com/vue/dist/vue.js"></script>
-<!-- import JavaScript -->
-<script src="https://unpkg.com/element-ui/lib/index.js"></script>
-<!-- import axios -->
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
   new Vue({
     el: '#app',
     data: {
+      iframeSrc: null,
       circleUrl: "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png",
+    },
+    created: function () {
+      this.iframeSrc = "greeting.html"
+    },
+    methods: {
+      getOrders: function () {
+        console.log("going to orders")
+        this.iframeSrc = "orders.html"
+        console.log(this.iframeSrc)
+      },
+      getCars: function () {
+        console.log("going to cars")
+        this.iframeSrc = "cars.html"
+        console.log(this.iframeSrc)
+      },
+      getHistories: function () {
+        console.log("going to histories")
+        this.iframeSrc = "histories.html"
+        console.log(this.iframeSrc)
+      }
     }
   })
 </script>
