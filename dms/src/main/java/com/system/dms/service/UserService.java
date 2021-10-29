@@ -1,6 +1,5 @@
 package com.system.dms.service;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.system.dms.entity.User;
 import com.system.dms.mapper.UserMapper;

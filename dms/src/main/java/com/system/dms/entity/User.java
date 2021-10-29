@@ -3,13 +3,12 @@ package com.system.dms.entity;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.math.BigInteger;
 
 @TableName("dms.user")
 public class User {
 
   @TableId
-  private BigInteger id;
+  private Long id;
 
   @TableField("username")
   private String username;
@@ -20,17 +19,17 @@ public class User {
   public User() {
   }
 
-  public User(BigInteger id, String username, String password) {
+  public User(Long id, String username, String password) {
     this.id = id;
     this.username = username;
     this.password = password;
   }
 
-  public BigInteger getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(BigInteger id) {
+  public void setId(Long id) {
     this.id = id;
   }
 

@@ -3,13 +3,12 @@ package com.system.dms.entity;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.math.BigInteger;
 
 @TableName("dms.order")
 public class Order {
 
     @TableId
-    private BigInteger id;
+    private Long id;
 
     @TableField("name")
     private String name;
@@ -33,7 +32,7 @@ public class Order {
 
     }
 
-    public Order(BigInteger id,String name,String origin,String destination,String car_license,double product_weight,String status){
+    public Order(Long id,String name,String origin,String destination,String car_license,double product_weight,String status){
         this.id=id;
         this.name=name;
         this.origin=origin;
@@ -43,11 +42,11 @@ public class Order {
         this.status=status;
     }
 
-    public BigInteger getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(BigInteger id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
