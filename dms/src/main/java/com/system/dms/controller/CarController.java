@@ -27,11 +27,16 @@ public class CarController {
         HashMap map = new HashMap();
         map.put("cars",cars);
         return map;
-
     }
 
-
-
+    @GetMapping("/find")
+    @ResponseBody
+    public Map find(Integer id){
+        Car car = carService.findById(id);
+        HashMap map = new HashMap();
+        map.put("car",car);
+        return map;
+    }
 
 
 }

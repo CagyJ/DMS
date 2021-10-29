@@ -18,4 +18,8 @@ public class UserService {
     List<User> list = userMapper.selectList(new QueryWrapper<>());
     return list;
   }
+
+  public User findById(Integer id) {
+    return userMapper.selectById(id);
+  }
 }

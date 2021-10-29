@@ -26,4 +26,13 @@ public class UserController {
     map.put("users", users);
     return map;
   }
+
+  @GetMapping("/find")
+  @ResponseBody
+  public Map find(Integer id) {
+    User user = userService.findById(id);
+    HashMap map = new HashMap();
+    map.put("user", user);
+    return map;
+  }
 }

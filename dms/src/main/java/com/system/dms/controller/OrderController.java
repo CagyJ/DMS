@@ -22,10 +22,19 @@ public class OrderController {
 
     @GetMapping("/all")
     @ResponseBody
-    public Map list(){
+    public Map list() {
         List<Order> orders = orderService.listAll();
         HashMap map=new HashMap();
         map.put("orders",orders);
+        return map;
+    }
+
+    @GetMapping("/find")
+    @ResponseBody
+    public Map find(Integer id) {
+        Order order = orderService.find(id);
+        HashMap map = new HashMap();
+        map.put("order", order);
         return map;
     }
 

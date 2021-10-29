@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class OrderService {
@@ -20,5 +21,8 @@ public class OrderService {
     }
 
 
-
+    @Transactional
+    public Order find(Integer id) {
+      return orderMapper.selectById(id);
+    }
 }

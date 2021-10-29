@@ -19,6 +19,7 @@ public class CarService {
     }
 
 
-
-
+  public Car findById(Integer id) {
+    return carMapper.selectById(id);
+  }
 }

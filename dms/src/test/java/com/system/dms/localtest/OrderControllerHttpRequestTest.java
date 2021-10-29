@@ -1,4 +1,4 @@
-package com.system.dms.controller;
+package com.system.dms.localtest;
 
 import java.util.Map;
 import org.junit.jupiter.api.Test;
@@ -14,7 +14,7 @@ public class OrderControllerHttpRequestTest {
 
     private static String JSON = """
             {
-                "orders": [
+                "order": [
                     {
                         "id": 1,
                         "name": "test",
@@ -35,11 +35,13 @@ public class OrderControllerHttpRequestTest {
     private TestRestTemplate testRestTemplate;
 
     @Test
-    void testListAll(){
-//        assertThat(testRestTemplate
-//                .getForObject("http://localhost:"+port+"/user/all", Map.class)
-//                .toString()
-//                .equals(JSON));
+    void testFindById(){
+        // TODO MWH fix this bug
+        assertThat(testRestTemplate
+                .getForObject("http://localhost:"+port+"/order/find&id=1", Map.class)
+                .toString()
+                .equals(JSON))
+            .isTrue();
     }
 
 }
