@@ -32,5 +32,8 @@ jobs:
       - name: Maven Test
         run: cd dms && mvn test
 
+      - name: Jacoco Coverage
+        run: cd dms && mvn clean verify
+
       - name: Maven Verify
         run: cd dms && mvn -B clean verify -DskipTests
