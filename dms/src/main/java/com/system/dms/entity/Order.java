@@ -28,18 +28,19 @@ public class Order {
     @TableField("status")
     private String status;
 
-    public Order(){
+    public Order() {
 
     }
 
-    public Order(Long id,String name,String origin,String destination,String car_license,double product_weight,String status){
-        this.id=id;
-        this.name=name;
-        this.origin=origin;
-        this.destination=destination;
-        this.car_license=car_license;
-        this.product_weight=product_weight;
-        this.status=status;
+    public Order(Long id, String name, String origin, String destination, String car_license,
+        double product_weight, String status) {
+        this.id = id;
+        this.name = name;
+        this.origin = origin;
+        this.destination = destination;
+        this.car_license = car_license;
+        this.product_weight = product_weight;
+        this.status = status;
     }
 
     public Long getId() {
