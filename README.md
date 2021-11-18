@@ -164,4 +164,6 @@ Display all past orders
 - add a filter to ignore people enter the main pages immediately
 - delete unsafe api in controllers
 - documentation for new people
-- …
+- Create two extra tools (linters and coverage)
+- Linters are tools for checking code styles and errors, which can improve code quality and make it easy for you to find some typos.
+- Coverage The main purpose is to check how much business processing code is covered by the test case. In the project, through the written test cases, check the logic coverage of the back-end business logic interface, realize comprehensive testing, and cover important business codes on demand. Provide complete test cases to improve test quality.
