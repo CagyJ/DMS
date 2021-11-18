@@ -37,3 +37,6 @@ jobs:
 
       - name: Maven Verify
         run: cd dms && mvn -B clean verify -DskipTests
+
+      - name: Codestyle Check
+        run: cd dms && mvn checkstyle:check
