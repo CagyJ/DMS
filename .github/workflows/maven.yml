@@ -9,7 +9,7 @@ on:
 
 jobs:
   test:
-    name: Unit-Test
+    name: Unit-Test and Jacoco Coverage
 
     runs-on: ${{matrix.os}}
     strategy:
