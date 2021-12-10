@@ -5,6 +5,9 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.system.dms.entity.Car;
 import com.system.dms.exception.DbRequestException;
 import com.system.dms.service.CarService;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,10 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @RestController
@@ -38,7 +37,7 @@ public class CarController {
         return map;
     }
 
-    @PostMapping("/list")
+    @GetMapping("/list")
     @ResponseBody
     public IPage<Car> list(@RequestParam("page") Integer page, @RequestParam("rows") Integer rows) {
         if (page == null) {
@@ -92,8 +91,7 @@ public class CarController {
     }
 
     @PostMapping("/delete")
-    @ResponseBody
-    public Map deleteCar(Integer id) {
+    public Map deleteCar(Long id) {
         Map result = new HashMap();
         try {
             carService.deleteCar(id);

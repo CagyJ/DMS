@@ -70,7 +70,7 @@
     </el-pagination>
 
     <!-- the dialog for adding new car -->
-    <el-dialog title="New Student" :visible.sync="dialogFormVisibleForAdd" @close="resetForm()">
+    <el-dialog :visible.sync="dialogFormVisibleForAdd" @close="resetForm()" title="New Car">
         <el-form :model="addForm">
             <el-form-item label="ID" :label-width="formLabelWidth" prop="id">
                 <el-input v-model="addForm.id" autocomplete="off"></el-input>
@@ -131,7 +131,7 @@
             tableData: [],
             pagination: {
                 currentPage: 1,
-                pageSize: 1,
+                pageSize: 3,
                 total: 0
             },
             // form for adding new car
@@ -160,7 +160,9 @@
         methods: {
             listAllCar: async function() {
                 try {
-                    const resp = await axios.post("/car/list", "page=" + this.pagination.currentPage + "&rows=" + this.pagination.pageSize)
+                    const resp = await axios.get(
+                        "/car/list?page=" + this.pagination.currentPage + "&rows="
+                        + this.pagination.pageSize)
                     console.log(resp)
                     if (resp.status === 200) {
                         this.tableData = resp.data.records
@@ -171,7 +173,7 @@
                         this.alertError("Get car list fail, please reload the page...")
                     }
                 } catch (error) {
-                    console.err(error)
+                    console.log(error)
                 }
             },
             addButton: function() {
