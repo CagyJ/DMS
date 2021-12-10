@@ -6,10 +6,9 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.system.dms.entity.Car;
 import com.system.dms.exception.DbRequestException;
 import com.system.dms.mapper.CarMapper;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
@@ -45,14 +44,14 @@ public class CarService {
       }
     }
 
-    @Transactional
-    public void deleteCar(Integer id) {
-        try {
-          carMapper.deleteById(id);
-        } catch (Exception e) {
-          throw new DbRequestException("E02", "Database delete error");
-        }
+  @Transactional
+  public void deleteCar(Long id) {
+    try {
+      carMapper.deleteById(id);
+    } catch (Exception e) {
+      throw new DbRequestException("E02", "Database delete error");
     }
+  }
 
     @Transactional
     public void updateCar(Car car) {

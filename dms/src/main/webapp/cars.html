@@ -69,6 +69,55 @@
         :total="pagination.total">
     </el-pagination>
 
+    <!-- the dialog for adding new car -->
+    <el-dialog :visible.sync="dialogFormVisibleForAdd" @close="resetForm()" title="New Car">
+        <el-form :model="addForm">
+            <el-form-item label="ID" :label-width="formLabelWidth" prop="id">
+                <el-input v-model="addForm.id" autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="Car License" :label-width="formLabelWidth" prop="carLicense">
+                <el-input v-model="addForm.carLicense" autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="Driver Name" :label-width="formLabelWidth" prop="driverName">
+                <el-input v-model="addForm.driverName" autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="Driver Phone Number" :label-width="formLabelWidth" prop="driverPhonenumber">
+                <el-input v-model="addForm.driverPhonenumber" autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="Driver Address" :label-width="formLabelWidth" prop="driverAddress">
+                <el-input v-model="addForm.driverAddress" autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="Driver ID" :label-width="formLabelWidth" prop="driverIdNumber">
+                <el-input v-model="addForm.driverIdNumber" autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="Status" :label-width="formLabelWidth" prop="status">
+                <el-switch
+                    v-model="addForm.status"
+                    active-color="#13ce66"
+                    inactive-color="#ff4949"
+                    active-value="busy"
+                    inactive-value="free">
+                </el-switch>
+            </el-form-item>
+        </el-form>
+        <div slot="footer" class="dialog-footer">
+            <el-button type="primary" @click="addNew('addForm')">Add</el-button>
+            <el-button type="warning" @click="resetForm()">Reset</el-button>
+            <el-button type="danger" @click="dialogFormVisibleForAdd = false">Cancel</el-button>
+        </div>
+    </el-dialog>
+
+    <el-dialog
+        title="Delete"
+        :visible.sync="dialogVisibleForDelete"
+        width="30%"
+        :before-close="handleClose">
+        <span>Are you sure to delete?</span>
+        <span slot="footer" class="dialog-footer">
+                <el-button @click="dialogVisibleForDelete = false">Cancel</el-button>
+                <el-button type="danger" @click="deleteCar()">Delete</el-button>
+            </span>
+    </el-dialog>
 </div>
 
 </body>
@@ -76,17 +125,44 @@
     new Vue({
         el: '#cars',
         data: {
+            dialogFormVisibleForAdd: false,
+            dialogFormVisibleForEdit: false,
+            dialogVisibleForDelete: false,
             tableData: [],
             pagination: {
                 currentPage: 1,
-                pageSize: 1,
+                pageSize: 3,
                 total: 0
-            }
+            },
+            // form for adding new car
+            addForm: {
+                id: '',
+                carLicense: '',
+                driverName: '',
+                driverPhonenumber: '',
+                status: '',
+                driverAddress: '',
+                driverIdNumber: ''
+            },
+            // form for editing a car
+            editForm: {
+                id: '',
+                carLicense: '',
+                driverName: '',
+                driverPhonenumber: '',
+                status: '',
+                driverAddress: '',
+                driverIdNumber: ''
+            },
+            deleteId: '',
+            formLabelWidth: '120px',
         },
         methods: {
             listAllCar: async function() {
                 try {
-                    const resp = await axios.post("/car/list", "page=" + this.pagination.currentPage + "&rows=" + this.pagination.pageSize)
+                    const resp = await axios.get(
+                        "/car/list?page=" + this.pagination.currentPage + "&rows="
+                        + this.pagination.pageSize)
                     console.log(resp)
                     if (resp.status === 200) {
                         this.tableData = resp.data.records
@@ -97,22 +173,69 @@
                         this.alertError("Get car list fail, please reload the page...")
                     }
                 } catch (error) {
-                    console.err(error)
+                    console.log(error)
                 }
             },
             addButton: function() {
+                this.dialogFormVisibleForAdd = true;
                 console.log("add a new car")
+            },
+            addNew(formName) {
+                // add operation
+                console.log("add");
+                let param = "id="+this.addForm.id+"&carLicense="+this.addForm.carLicense
+                    +"&driverName="+this.addForm.driverName+"&driverPhonenumber="+this.addForm.driverPhonenumber
+                    +"&driverAddress="+this.addForm.driverAddress+"&driverIdNumber="+this.addForm.driverIdNumber+"&status="+this.addForm.status;
+                axios.post("/car/add", param)
+                .then(resp => {
+                    console.log(resp);
+                    this.listAllCar();
+                })
+                this.dialogFormVisibleForAdd = false;
             },
             editButton: function(row) {
                 console.log("edit a car")
             },
             deleteButton: function(row) {
                 console.log("delete a car")
+                this.dialogVisibleForDelete = true;
+                this.deleteId = row.id
+            },
+            deleteCar: function(row) {
+                console.log("delete")
+                this.dialogVisibleForDelete = false;
+                const param = 'id='+this.deleteId;
+                console.log(param)
+                axios.post("/car/delete", param)
+                    .then(resp=>{
+                        console.log(resp)
+                        this.listAllCar()
+                    })
+            },
+            handleClose(done) {
+                this.$confirm('Cancel？')
+                .then(_ => {
+                    done();
+                })
+                .catch(_ => {});
             },
             handleCurrentChange(pageNum) {
                 console.log(pageNum);
                 this.pagination.currentPage = pageNum;
                 this.listAllCar();
+            },
+            resetForm() {
+                // double bind, formData also got the data
+                this.addForm = {
+                    id: '',
+                    carLicense: '',
+                    driverName: '',
+                    driverPhonenumber: '',
+                    status: '',
+                    driverAddress: '',
+                    driverIdNumber: ''};
+                // clear the data of the form
+                // this.$refs[formName].resetFields();
             },
             alertError(msg) {
                 // TODO
