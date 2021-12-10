@@ -27,13 +27,13 @@ jobs:
           cache: maven
 
       - name: Maven Package
-        run: cd dms && mvn -B clean package
+        run: mvn -B clean package
       
       - name: Maven Test
-        run: cd dms && mvn test
+        run: mvn test
 
       - name: Jacoco Coverage
-        run: cd dms && mvn clean verify
+        run: mvn clean verify
 
       - name: Maven Verify
-        run: cd dms && mvn -B clean verify -DskipTests
+        run: mvn -B clean verify -DskipTests
