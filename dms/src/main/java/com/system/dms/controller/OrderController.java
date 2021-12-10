@@ -53,7 +53,7 @@ public class OrderController {
 
     @PostMapping("/add")
     @ResponseBody
-    public Map addCar(Order order, Integer curPage, Integer pageSize, RedirectAttributes attr) {
+    public Map addOrder(Order order, Integer curPage, Integer pageSize, RedirectAttributes attr) {
         Map result = new HashMap();
         try {
             orderService.addOrder(order);
@@ -69,7 +69,7 @@ public class OrderController {
 
     @PostMapping("/delete")
     @ResponseBody
-    public Map deleteCar(Integer id) {
+    public Map deleteOrder(Integer id) {
         Map result = new HashMap();
         try {
             orderService.deleteOrder(id);
