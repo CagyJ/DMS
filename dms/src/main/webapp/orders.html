@@ -110,9 +110,60 @@
   <span>Are you sure to delete?</span>
   <span slot="footer" class="dialog-footer">
       <el-button @click="dialogVisibleForDelete = false">Cancel</el-button>
-      <el-button type="danger" @click="deleteCar()">Delete</el-button>
+      <el-button type="danger" @click="deleteOrder()">Delete</el-button>
   </span>
 </el-dialog>
+
+
+  <!-- the dialog for editing the order -->
+  <el-dialog title="Edit Order" :visible.sync="dialogFormVisibleForEdit" @close="resetForm()">
+    <el-form :model="editForm">
+      <el-form-item label="ID" :label-width="formLabelWidth" prop="id">
+        <el-input v-model="editForm.id" autocomplete="off"></el-input>
+      </el-form-item>
+      <el-form-item label="Name" :label-width="formLabelWidth" prop="name">
+        <el-input v-model="editForm.name" autocomplete="off"></el-input>
+      </el-form-item>
+      <el-form-item label="Origin" :label-width="formLabelWidth" prop="origin">
+        <el-input v-model="editForm.origin" autocomplete="off"></el-input>
+      </el-form-item>
+      <el-form-item label="Destination" :label-width="formLabelWidth" prop="destination">
+        <el-input v-model="editForm.destination" autocomplete="off"></el-input>
+      </el-form-item>
+      <el-form-item label="Car License" :label-width="formLabelWidth" prop="car_license">
+        <el-input v-model="editForm.car_license" autocomplete="off"></el-input>
+      </el-form-item>
+      <el-form-item label="Product Weight" :label-width="formLabelWidth" prop="product_weight">
+        <el-input v-model="editForm.product_weight" autocomplete="off"></el-input>
+      </el-form-item>
+      <el-form-item label="Status" :label-width="formLabelWidth" prop="status">
+        <el-switch
+                v-model="addForm.status"
+                active-color="#13ce66"
+                inactive-color="#ff4949"
+                active-value="busy"
+                inactive-value="free">
+        </el-switch>
+      </el-form-item>
+    </el-form>
+    <div slot="footer" class="dialog-footer">
+      <el-button type="primary" @click="editNew('editForm')">Edit</el-button>
+      <el-button type="warning" @click="resetForm()">Reset</el-button>
+      <el-button type="danger" @click="dialogFormVisibleForEdit = false">Cancel</el-button>
+    </div>
+  </el-dialog>
+
+  <el-dialog
+          title="Delete"
+          :visible.sync="dialogVisibleForDelete"
+          width="30%"
+          :before-close="handleClose">
+    <span>Are you sure to delete?</span>
+    <span slot="footer" class="dialog-footer">
+      <el-button @click="dialogVisibleForDelete = false">Cancel</el-button>
+      <el-button type="danger" @click="deleteOrder()">Delete</el-button>
+  </span>
+  </el-dialog>
 
 
 </div>
@@ -189,14 +240,14 @@
             },
             editButton: function(row) {
                 this.dialogFormVisibleForEdit = true;
-                console.log("edit a order")
+                console.log("edit a order");
             },
             edit(formName){
               // edit operation
               console.log("edit");
-              let param = "id="+this.addForm.id+"&name="+this.addForm.name
-                    +"&origin="+this.addForm.origin+"&destination="+this.addForm.destination
-                    +"&car_license="+this.addForm.car_license+"&product_weight="+this.addForm.product_weight+"&status="+this.addForm.status;
+              let param = "id="+this.editForm.id+"&name="+this.editForm.name
+                    +"&origin="+this.editForm.origin+"&destination="+this.editForm.destination
+                    +"&car_license="+this.editForm.car_license+"&product_weight="+this.editForm.product_weight+"&status="+this.editForm.status;
                 axios.post("/order/edit", param)
                 .then(resp => {
                     console.log(resp);
